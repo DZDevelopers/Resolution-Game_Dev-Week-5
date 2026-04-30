@@ -8,11 +8,6 @@ const FALLBACK_WORDS: Array[String] = [
 	"rush", "zoom", "soar", "fling", "bound"
 ]
 
-const HARD_WORDS: Array[String] = [
-	"platform", "survive", "escape", "danger",
-	"courage", "thunder", "shatter", "cascade"
-]
-
 var _current_word = ""
 var _typed_so_far = ""
 var _active = false
@@ -61,7 +56,7 @@ func _on_request_done(result: int, code: int, _headers, body: PackedByteArray) -
 
 
 func _use_fallback() -> void:
-	var pool = HARD_WORDS if GameManager.difficulty >= 2.0 else FALLBACK_WORDS
+	var pool = FALLBACK_WORDS
 	_activate_word(pool[randi() % pool.size()])
 
 

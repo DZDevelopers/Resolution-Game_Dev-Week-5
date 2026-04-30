@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dxo0yohpp4osy"]
+
+[ext_resource type="Script" uid="uid://b50lnjm42vxas" path="res://scripts/death_wall.gd" id="1_flqnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axcpo"]
+size = Vector2(79, 2399)
+
+[node name="DeathWall" type="Node2D" unique_id=695056522]
+script = ExtResource("1_flqnd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1086220104]
+offset_top = -600.0
+offset_right = 80.0
+offset_bottom = 1800.0
+color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=791278457]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=118673379]
+position = Vector2(39.5, 599.5)
+shape = SubResource("RectangleShape2D_axcpo")

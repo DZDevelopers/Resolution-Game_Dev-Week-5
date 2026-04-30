@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://155xx7s6y6ta"]
+
+[ext_resource type="Script" uid="uid://bvcqa1vq4ohne" path="res://scripts/platform_generator.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dv2pjqdemn0kf" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dxo0yohpp4osy" path="res://scenes/death_wall.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://bqdbjcv2rrk51" path="res://scripts/word_manager.gd" id="4_jyhfs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font_size = 32
+
+[node name="Main" type="Node2D" unique_id=349699525]
+script = ExtResource("1_tefeu")
+
+[node name="PlatformGenerator" type="Node2D" parent="." unique_id=567210514]
+script = ExtResource("1_sugp2")
+
+[node name="DeathWall" parent="." unique_id=695056522 instance=ExtResource("2_jyhfs")]
+position = Vector2(-415, -13)
+
+[node name="Player" parent="." unique_id=67633146 instance=ExtResource("3_tbgi4")]
+position = Vector2(297, -1383)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=503012672]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=385983097]
+
+[node name="WordPrompt" type="Control" parent="UI" unique_id=988651490]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_jyhfs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="UI/WordPrompt" unique_id=877453394]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 323.0
+offset_top = -11.0
+offset_right = 823.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WordDisplay" type="RichTextLabel" parent="UI/WordPrompt/Panel" unique_id=1577635143]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 39.0
+offset_right = 497.0
+offset_bottom = 119.0
+bbcode_enabled = true
+
+[node name="HintLabel" type="Label" parent="UI/WordPrompt/Panel" unique_id=1958310643]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 2.0
+offset_right = 339.0
+offset_bottom = 25.0
+text = "Type the word below to jump!"
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=582851209]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=1417623287]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="ColorRect" parent="UI/GameOverScreen" unique_id=867312165]
+layout_mode = 0
+offset_right = 1752.0
+offset_bottom = 989.0
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverScreen" unique_id=319373609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -174.0
+offset_right = 158.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_tbgi4")
+
+[node name="FinalScoreLabel" type="Label" parent="UI/GameOverScreen" unique_id=1826080220]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -49.0
+offset_right = 64.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="UI/GameOverScreen" unique_id=398369728]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -99.0
+offset_right = 112.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"

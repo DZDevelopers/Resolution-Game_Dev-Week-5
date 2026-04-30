@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://be8qbmt0fe144"]
+
+[ext_resource type="Script" uid="uid://mf66bxpxm1ae" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 14.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(20, 68)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1915491554]
+collision_layer = 3
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=525554264]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1855290009]
+offset_left = -14.0
+offset_top = -44.0
+offset_right = 14.0
+
+[node name="EdgeCheck" type="Area2D" parent="." unique_id=271811970]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeCheck" unique_id=1922436130]
+position = Vector2(29, 32)
+shape = SubResource("RectangleShape2D_3vyb7")
